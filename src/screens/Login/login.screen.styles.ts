@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { CommonStyles } from '../../common/styles/common.styles';
+
+import { CommonStyles } from '@jump/common';
 
 export const LoginScreenStyles = StyleSheet.create({
 	Container: {
