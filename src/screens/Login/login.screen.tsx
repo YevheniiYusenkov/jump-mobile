@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
-import { LoginScreenProps } from './login.screen.interfaces';
+import { LoginScreenStyles } from './login.screen.styles';
 
-export const LoginScreen: React.FunctionComponent = (props: LoginScreenProps): JSX.Element => {
+export const LoginScreen: React.FunctionComponent = (): JSX.Element => {
   return (
-    <View>
-      {props.children}
+    <View style={LoginScreenStyles.Container}>
+      <Text>This is the Login Screen!</Text>
     </View>
   );
 };
