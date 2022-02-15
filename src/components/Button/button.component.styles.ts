@@ -14,12 +14,17 @@ export interface ButtonStylesInterface {
 const ButtonStylesCommon = StyleSheet.create({
 	Button: {
 		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 		flexShrink: 1,
 		marginTop: 12,
 		width: '100%',
+		maxHeight: 50,
+		minHeight: 50,
 		...CommonStyles.Rounded,
 	},
 	Text: {
+		display: 'flex',
 		fontSize: FontSizes.Normal,
 	},
 });
