@@ -1,16 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { CommonStyles } from '@jump/common';
 
 export const LoginFormStyles = StyleSheet.create({
-	LoginForm: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		flexDirection: 'column',
-		marginTop: 12,
-		marginBottom: 12,
-		width: '80%',
+	Container: {
+		...CommonStyles.FormContainer,
 	},
-	LoginFormButtons: {
+	ButtonsContainer: {
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',

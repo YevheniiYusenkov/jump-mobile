@@ -12,10 +12,10 @@ export const LoginForm: React.FunctionComponent<LoginFormProps> = (props): JSX.E
 	const { control, handleSubmit } = useForm();
 
 	return (
-		<View style={LoginFormStyles.LoginForm}>
-			<Input required={true} name='username' control={control} placeholder='Enter your username.' />
-			<Input required={true} name='password' control={control} placeholder='Enter your password.' secureTextEntry={true} />
-			<View style={LoginFormStyles.LoginFormButtons}>
+		<View style={LoginFormStyles.Container}>
+			<Input required={true} name='username' control={control} placeholder='Enter your username' />
+			<Input required={true} name='password' control={control} placeholder='Enter your password' secureTextEntry={true} />
+			<View style={LoginFormStyles.ButtonsContainer}>
 				<Button onSubmit={props.onRequestPressed} text='Request' style={LoginFormStyles.RequestButton} outlined />
 				<Button onSubmit={props.onLoginSubmit} text='Login' handleSubmit={handleSubmit} style={LoginFormStyles.LoginButton} />
 			</View>
