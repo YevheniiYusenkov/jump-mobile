@@ -9,4 +9,7 @@ export const CommonStyles = StyleSheet.create({
 	Text: {
 		color: CommonColors.Text,
 	},
+	Rounded: {
+		borderRadius: 15,
+	},
 });
