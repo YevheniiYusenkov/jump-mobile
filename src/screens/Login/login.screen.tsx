@@ -22,7 +22,7 @@ export const LoginScreen: React.FunctionComponent<LoginScreenProps> = (): JSX.El
 
   return (
     <View style={LoginScreenStyles.Container}>
-      <Logo width={125} height={125} colored={true} />
+      <Logo colored={true} />
       <LoginForm onLoginSubmit={onLoginSubmit} onRequestPressed={onRequestPressed} />
       <Text style={LoginScreenStyles.FooterText}>Developed by Yevhenii Yusenkov, 2022</Text>
     </View>
