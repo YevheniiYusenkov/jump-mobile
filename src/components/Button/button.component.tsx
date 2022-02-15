@@ -3,18 +3,23 @@ import * as React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 
 import { ButtonProps } from './button.component.interfaces';
-import { ButtonComponentStyles } from './button.component.styles';
+import {
+	ButtonStylesDefault,
+	ButtonStylesOutlined,
+} from './button.component.styles';
 
 export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element => {
-	const { onSubmit, handleSubmit, style, text } = props;
+	const { onSubmit, handleSubmit, style, text, ...otherProps } = props;
+
+	const customStyles = (props.outlined) ? ButtonStylesOutlined : ButtonStylesDefault;
 
 	return (
 		<TouchableOpacity
-			style={[ ButtonComponentStyles.TouchableOpacity, { ...(style as object) } ]}
+			style={[ customStyles.Button, { ...(style as object) } ]}
 			onPress={(handleSubmit) ? handleSubmit(onSubmit) : onSubmit}
-			{...props}
+			{...otherProps}
 		>
-			<Text style={ButtonComponentStyles.Text}>{text}</Text>
+			<Text style={customStyles.Text}>{text}</Text>
 		</TouchableOpacity>
 	);
 };
