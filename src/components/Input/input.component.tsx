@@ -3,7 +3,7 @@ import * as React from 'react';
 import { TextInput } from 'react-native';
 import { Controller } from 'react-hook-form';
 
-import { CommonColors } from '@jump/common';
+import { Colors } from '@jump/common';
 
 import { InputProps } from './input.component.interfaces';
 import { InputStyles } from './input.component.styles';
@@ -24,7 +24,7 @@ export const Input: React.FunctionComponent<InputProps> = (props): JSX.Element =
 					onChangeText={onChange}
 					value={value}
 					placeholder={placeholder}
-					placeholderTextColor={CommonColors.TextSecondary}
+					placeholderTextColor={Colors.TextSecondary}
 					style={[ InputStyles.TextInput, { ...(style as object) } ]}
 					{...otherProps}
 				/>
