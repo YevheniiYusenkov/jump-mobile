@@ -3,9 +3,10 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
+import { RootStackParamList } from '@jump/interfaces';
 import { LoginScreen, ProfileScreen, SignupScreen } from '@jump/screens';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App: React.FunctionComponent = (): JSX.Element => {
   return (
