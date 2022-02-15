@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { CommonStyles } from '@jump/common';
+import { CommonColors, CommonFontSizes, CommonFontWeights, CommonStyles } from '@jump/common';
 
 export const LoginScreenStyles = StyleSheet.create({
 	Container: {
@@ -12,13 +12,16 @@ export const LoginScreenStyles = StyleSheet.create({
 		color: '#ffcc00',
 		...CommonStyles.Background,
 	},
-	LoginForm: {
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		flexDirection: 'column',
-		marginTop: 12,
-		marginBottom: 12,
-		width: '80%',
+	FooterText: {
+		fontWeight: CommonFontWeights.Regular,
+		position: 'absolute',
+		marginBottom: 30,
+		bottom: 0,
+	},
+	LogoText: {
+		color: CommonColors.Secondary,
+		fontWeight: CommonFontWeights.Bold,
+		fontSize: CommonFontSizes.Medium,
+		marginBottom: 10,
 	},
 });
