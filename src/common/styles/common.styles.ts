@@ -4,7 +4,7 @@ import { CommonColors } from './common.colors';
 
 export const CommonStyles = StyleSheet.create({
   Background: {
-		backgroundColor: CommonColors.Primary,
+		backgroundColor: CommonColors.Background,
   },
 	Text: {
 		color: CommonColors.Text,
