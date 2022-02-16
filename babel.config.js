@@ -11,6 +11,7 @@ module.exports = {
           '@jump/forms': './src/forms/index.ts',
           '@jump/components': './src/components/index.ts',
           '@jump/interfaces': './src/interfaces/index.ts',
+          '@jump/contexts': './src/contexts/index.ts',
           '@jump/assets': './assets/index.ts',
         },
       },
