@@ -5,7 +5,6 @@ export const LogoStyles = StyleSheet.create({
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
-		resizeMode: 'contain',
 		margin: 12,
 	},
 });

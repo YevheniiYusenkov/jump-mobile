@@ -1,17 +1,23 @@
 import * as React from 'react';
 
-import { Image } from 'react-native';
+import { useContext } from 'react';
+import { View } from 'react-native';
 
-import { Assets } from '@jump/assets';
+import { LogoImage } from '@jump/assets';
+import { ThemeContext } from '@jump/themes';
 
 import { LogoProps } from './logo.component.interfaces';
-import { LogoStyles } from './logo.component.styles';
+import { Color } from 'react-native-svg/lib/typescript/lib/extract/types';
 
 export const Logo: React.FunctionComponent<LogoProps> = (props): JSX.Element => {
-	const { colored, style, width = 125, height = 125, ...otherProps } = props;
-	const logo = (colored) ? Assets.LogoBoxColored : Assets.LogoWhite;
+	const { theme: { colors } } = useContext(ThemeContext);
+
+	const { colored, style, fill, width = 125, height = 60, ...otherProps } = props;
+	const color: Color = (fill) ? fill : (colored) ? colors.Secondary : colors.Logo;
 
 	return (
-		<Image source={logo} style={[ LogoStyles.Image, { ...(style as object) } ]} width={width} height={height} {...otherProps} />
+		<View style={style} {...otherProps}>
+			<LogoImage fill={color} width={width} height={height} />
+		</View>
 	);
 };
