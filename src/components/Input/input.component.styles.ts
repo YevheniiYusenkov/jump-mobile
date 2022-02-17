@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native';
 
 import { Theme } from '@jump/themes';
 
-export const InputCommonStyles = ({ colors, font: { size } }: Theme, styles: any,) =>
+export const InputCommonStyles = ({ colors, font: { size, weight } }: Theme, styles: any,) =>
 	StyleSheet.create({
 		Container: {
 			display: 'flex',
 			justifyContent: 'center',
 			alignItems: 'center',
-			flexDirection: 'row',
+			flexDirection: 'column',
 			width: '100%',
 			maxHeight: 50,
 			minHeight: 50,
@@ -28,6 +28,15 @@ export const InputCommonStyles = ({ colors, font: { size } }: Theme, styles: any
 			zIndex: 0,
 			...styles.Rounded,
 		},
+		Error: {
+			marginTop: 6,
+			marginLeft: 40,
+			width: '100%',
+			textAlign: 'left',
+			color: colors.Error,
+			fontSize: size.Normal,
+			fontWeight: weight.Regular,
+		},
 	});
 
 export const InputStyles = (styles: any) =>
@@ -38,6 +47,9 @@ export const InputStyles = (styles: any) =>
 		Input: {
 			paddingLeft: 24,
 			...styles.Input,
+		},
+		Error: {
+			...styles.Error,
 		},
 		Icon: {},
 	});
@@ -51,6 +63,9 @@ export const InputStylesWithIcon = (styles: any) =>
 		Input: {
 			paddingLeft: 54,
 			...styles.Input,
+		},
+		Error: {
+			...styles.Error,
 		},
 		Icon: {
 			zIndex: 1,

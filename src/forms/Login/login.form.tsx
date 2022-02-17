@@ -14,7 +14,7 @@ import { LoginFormStyles } from './login.form.styles';
 import { LoginFormProps } from './login.form.interfaces';
 
 export const LoginForm: React.FunctionComponent<LoginFormProps> = (props): JSX.Element => {
-	const { control, handleSubmit } = useForm();
+	const { control, handleSubmit, formState: { errors } } = useForm();
 
 	const { theme: { colors } } = useContext(ThemeContext);
 	const commonStyles = CommonStyles(colors);
@@ -22,8 +22,32 @@ export const LoginForm: React.FunctionComponent<LoginFormProps> = (props): JSX.E
 
 	return (
 		<View style={styles.Container}>
-			<Input required={false} name='username' control={control} placeholder='Enter your username' icon={faUser} />
-			<Input required={false} name='password' control={control} placeholder='Enter your password' icon={faKey} secureTextEntry={true} />
+			<Input
+				required='This field is required.'
+				name='username' control={control}
+				placeholder='Enter your username'
+				icon={faUser}
+				errors={errors}
+				validate={{
+					oneLowercaseCharacter: (value) => /(?=.*[a-z])/.test(value) || 'Must have lowercase character',
+					oneUppercaseCharacter: (value) => /(?=.*[A-Z])/.test(value) || 'Must have uppercase character',
+				}}
+			/>
+
+			<Input
+				required={'This field is required.'}
+				name='password'
+				control={control}
+				placeholder='Enter your password'
+				icon={faKey}
+				secureTextEntry={true}
+				errors={errors}
+				validate={{
+					oneLowercaseCharacter: (value) => /(?=.*[a-z])/.test(value) || 'Must have lowercase character',
+					oneUppercaseCharacter: (value) => /(?=.*[A-Z])/.test(value) || 'Must have uppercase character',
+				}}
+			/>
+
 			<View style={styles.ButtonsContainer}>
 				<Button onSubmit={props.onRequestPressed} text='Request' style={styles.RequestButton} outlined />
 				<Button onSubmit={props.onLoginSubmit} text='Login' handleSubmit={handleSubmit} style={styles.LoginButton} />
