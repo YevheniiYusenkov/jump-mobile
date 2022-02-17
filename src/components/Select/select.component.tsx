@@ -1,34 +1,43 @@
 import * as React from 'react';
 
+import { useContext } from 'react';
 import { View } from 'react-native';
 import { Controller } from 'react-hook-form';
 import { Picker } from '@react-native-picker/picker';
+
+import { ThemeContext } from '@jump/themes';
+import { CommonStyles } from '@jump/common';
 
 import { SelectProps } from './select.component.interfaces';
 import { SelectStyles } from './select.component.styles';
 
 export const Select: React.FunctionComponent<SelectProps> = (props): JSX.Element => {
-	const { defaultValue, control, name, required, setValue, ...otherProps } = props;
-	console.log(defaultValue);
+	const { control, name, required, setValue, items, ...otherProps } = props;
+	const defaultItem = items.find((item) => item.default) || items[0];
+
+	const { theme } = useContext(ThemeContext);
+	const commonStyles = CommonStyles(theme.colors);
+	const styles = SelectStyles(theme, commonStyles);
+
 	return (
 		<Controller
 			control={control}
 			name={name}
-			defaultValue={defaultValue}
+			defaultValue={defaultItem?.value}
 			rules={{
 				required,
 			}}
-			render={({ field: { value } }) => (
-				<View style={SelectStyles.Container}>
+			render={({ field }) => (
+				<View style={styles.Container}>
 					<Picker
-						style={SelectStyles.Picker}
-						selectedValue={value}
+						selectedValue={field.value}
 						onValueChange={(itemValue) => setValue(name, itemValue)}
+						style={styles.Picker}
 						{...otherProps}
 					>
-						<Picker.Item style={SelectStyles.Item} label='Java' value='java' />
-						<Picker.Item style={SelectStyles.Item} label='JavaScript' value='js' />
-						<Picker.Item style={SelectStyles.Item} label='Html' value='html' />
+						{items.map(({ label, value }) => (
+							<Picker.Item style={styles.Item} label={label} value={value} key={value} />
+						))}
 					</Picker>
 				</View>
 			)}
