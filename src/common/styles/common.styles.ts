@@ -38,6 +38,6 @@ export const CommonStyles = (colors: Theme['colors']) =>
 			flexDirection: 'column',
 			marginTop: 12,
 			marginBottom: 12,
-			width: '80%',
+			width: '90%',
 		},
 	});
