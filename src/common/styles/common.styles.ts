@@ -1,30 +1,43 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from './common.colors';
+import { Theme } from '@jump/themes';
 
-export const CommonStyles = StyleSheet.create({
-  ScreenContainer: {
-	  flex: 1,
-	  display: 'flex',
-	  justifyContent: 'center',
-	  alignItems: 'center',
-	  flexDirection: 'column',
-	  color: '#ffcc00',
-		backgroundColor: Colors.Background,
-  },
-	Text: {
-		color: Colors.Text,
-	},
-	Rounded: {
-		borderRadius: 15,
-	},
-	FormContainer: {
+const CommonUsages = StyleSheet.create({
+	ScreenContainer: {
+		flex: 1,
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-		marginTop: 12,
-		marginBottom: 12,
-		width: '80%',
 	},
 });
+
+export const CommonStyles = (colors: Theme['colors']) =>
+	StyleSheet.create({
+		KeyboardAvoidingContainer: {
+			flex: 1,
+		},
+	  PrimaryScreenContainer: {
+			backgroundColor: colors.Background,
+		  ...CommonUsages.ScreenContainer,
+	  },
+		SecondaryScreenContainer: {
+			backgroundColor: colors.Secondary,
+			...CommonUsages.ScreenContainer,
+		},
+		Text: {
+			color: colors.Text,
+		},
+		Rounded: {
+			borderRadius: 15,
+		},
+		FormContainer: {
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
+			flexDirection: 'column',
+			marginTop: 12,
+			marginBottom: 12,
+			width: '80%',
+		},
+	});
