@@ -1,15 +1,25 @@
 import * as React from 'react';
 
-import { TextInput } from 'react-native';
+import { useContext } from 'react';
 import { Controller } from 'react-hook-form';
+import { TextInput, View } from 'react-native';
 
-import { Colors } from '@jump/common';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+
+import { ThemeContext } from '@jump/themes';
+import { CommonStyles } from '@jump/common';
 
 import { InputProps } from './input.component.interfaces';
-import { InputStyles } from './input.component.styles';
+import { InputStyles, InputStylesWithIcon, InputCommonStyles } from './input.component.styles';
 
 export const Input: React.FunctionComponent<InputProps> = (props): JSX.Element => {
-	const { control, name, required, placeholder, style, ...otherProps } = props;
+	const { control, name, required, placeholder, style, icon, ...otherProps } = props;
+
+	const { theme }  = useContext(ThemeContext);
+	const commonStyles = CommonStyles(theme.colors);
+	const styles = InputCommonStyles(theme, commonStyles);
+
+	const customStyles = (icon) ? InputStylesWithIcon(styles) : InputStyles(styles);
 
 	return (
 		<Controller
@@ -19,15 +29,20 @@ export const Input: React.FunctionComponent<InputProps> = (props): JSX.Element =
 				required,
 			}}
 			render={({ field: { onChange, onBlur, value } }) => (
-				<TextInput
-					onBlur={onBlur}
-					onChangeText={onChange}
-					value={value}
-					placeholder={placeholder}
-					placeholderTextColor={Colors.TextSecondary}
-					style={[ InputStyles.TextInput, { ...(style as object) } ]}
-					{...otherProps}
-				/>
+				<View style={customStyles.Container}>
+					{icon && (
+						<FontAwesomeIcon style={customStyles.Icon} icon={icon} color={theme.colors.Text} />
+					)}
+					<TextInput
+						onBlur={onBlur}
+						onChangeText={onChange}
+						value={value}
+						placeholder={placeholder}
+						placeholderTextColor={theme.colors.TextSecondary}
+						style={[ customStyles.Input, { ...(style as object) } ]}
+						{...otherProps}
+					/>
+				</View>
 			)}
 		/>
 	);
