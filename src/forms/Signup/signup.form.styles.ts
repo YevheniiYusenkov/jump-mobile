@@ -1,7 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-export const SignupFormStyles = (styles: any) =>
-	StyleSheet.create({
+import { CommonStyles } from '@jump/common';
+import { Theme } from '@jump/themes';
+
+export const SignupFormStyles = ({ colors }: Theme) => {
+	const styles = CommonStyles(colors);
+
+	return StyleSheet.create({
 		Container: {
 			...styles.FormContainer,
 		},
@@ -9,3 +14,4 @@ export const SignupFormStyles = (styles: any) =>
 			marginTop: 24,
 		},
 	});
+};

@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import { useContext } from 'react';
 import { View } from 'react-native';
 import { Controller } from 'react-hook-form';
 import { Picker } from '@react-native-picker/picker';
 
-import { ThemeContext } from '@jump/themes';
+import { useTheme } from '@jump/themes';
 import { CommonStyles } from '@jump/common';
 
 import { SelectProps } from './select.component.interfaces';
@@ -15,7 +14,7 @@ export const Select: React.FunctionComponent<SelectProps> = (props) => {
 	const { control, name, required, setValue, items, ...otherProps } = props;
 	const defaultItem = items.find((item) => item.default) || items[0];
 
-	const { theme } = useContext(ThemeContext);
+	const { theme } = useTheme();
 	const commonStyles = CommonStyles(theme.colors);
 	const styles = SelectStyles(theme, commonStyles);
 

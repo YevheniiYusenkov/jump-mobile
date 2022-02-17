@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { TouchableOpacity, Text } from 'react-native';
 
-import { ThemeContext } from '@jump/themes';
+import { useTheme } from '@jump/themes';
 import { CommonStyles } from '@jump/common';
 
 import { ButtonProps } from './button.component.interfaces';
@@ -11,12 +11,11 @@ import {
 	ButtonStylesDefault,
 	ButtonStylesOutlined,
 } from './button.component.styles';
-import { useContext } from 'react';
 
 export const Button: React.FunctionComponent<ButtonProps> = (props) => {
 	const { onSubmit, handleSubmit, style, text, ...otherProps } = props;
 
-	const { theme } = useContext(ThemeContext);
+	const { theme } = useTheme();
 	const commonStyles = CommonStyles(theme.colors);
 	const styles = ButtonStylesCommon(theme, commonStyles);
 

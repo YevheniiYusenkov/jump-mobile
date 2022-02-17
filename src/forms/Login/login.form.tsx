@@ -1,13 +1,11 @@
 import * as React from 'react';
 
-import { useContext } from 'react';
 import { View } from 'react-native';
 import { useForm } from 'react-hook-form';
 
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
 
-import { ThemeContext } from '@jump/themes';
-import { CommonStyles } from '@jump/common';
+import { useTheme } from '@jump/themes';
 import { Button, Input } from '@jump/components';
 
 import { LoginFormStyles } from './login.form.styles';
@@ -16,9 +14,8 @@ import { LoginFormProps } from './login.form.interfaces';
 export const LoginForm: React.FunctionComponent<LoginFormProps> = (props) => {
 	const { control, handleSubmit, formState: { errors } } = useForm();
 
-	const { theme: { colors } } = useContext(ThemeContext);
-	const commonStyles = CommonStyles(colors);
-	const styles = LoginFormStyles(commonStyles);
+	const { theme } = useTheme();
+	const styles = LoginFormStyles(theme);
 
 	return (
 		<View style={styles.Container}>

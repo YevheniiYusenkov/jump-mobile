@@ -1,16 +1,15 @@
 import * as React from 'react';
 
-import { useContext } from 'react';
 import { SafeAreaView } from 'react-native';
 
 import { Logo } from '@jump/components';
 import { CommonStyles } from '@jump/common';
-import { ThemeContext } from '@jump/themes';
+import { useTheme } from '@jump/themes';
 
 import { LoadingScreenStyles } from './loading.screen.styles';
 
 export const LoadingScreen: React.FunctionComponent = () => {
-	const { theme: { colors } } = useContext(ThemeContext);
+	const { theme: { colors } } = useTheme();
 	const commonStyles = CommonStyles(colors);
 	const styles = LoadingScreenStyles(commonStyles);
 

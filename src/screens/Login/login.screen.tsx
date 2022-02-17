@@ -1,12 +1,11 @@
 import * as React from 'react';
 
-import { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { Logo } from '@jump/components';
 import { CommonStyles } from '@jump/common';
-import { ThemeContext } from '@jump/themes';
+import { useTheme } from '@jump/themes';
 import { LoginForm, LoginFormData } from '@jump/forms';
 
 import { LoginScreenStyles } from './login.screen.styles';
@@ -15,7 +14,7 @@ import { LoginScreenNavigationProp, LoginScreenProps } from './login.screen.inte
 export const LoginScreen: React.FunctionComponent<LoginScreenProps> = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const commonStyles = CommonStyles(theme.colors);
   const styles = LoginScreenStyles(theme, commonStyles);
 

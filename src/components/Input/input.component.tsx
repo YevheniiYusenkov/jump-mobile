@@ -1,13 +1,12 @@
 import * as React from 'react';
 
-import { useContext } from 'react';
 import { Controller } from 'react-hook-form';
 import { Text, TextInput, View } from 'react-native';
 
 import { ErrorMessage } from '@hookform/error-message';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-import { ThemeContext } from '@jump/themes';
+import { useTheme } from '@jump/themes';
 import { CommonStyles } from '@jump/common';
 
 import { InputProps } from './input.component.interfaces';
@@ -16,7 +15,7 @@ import { InputStyles, InputStylesWithIcon, InputCommonStyles } from './input.com
 export const Input: React.FunctionComponent<InputProps> = (props) => {
 	const { control, name, required, errors, validate, placeholder, style, icon, ...otherProps } = props;
 
-	const { theme }  = useContext(ThemeContext);
+	const { theme }  = useTheme();
 	const commonStyles = CommonStyles(theme.colors);
 	const styles = InputCommonStyles(theme, commonStyles);
 
