@@ -10,7 +10,7 @@ export const LightTheme: Theme = {
 		Secondary: '#2255c7',
 		Text: '#000000',
 		TextSecondary: '#464646',
-		Error: '#c92222',
+		Error: '#ef3232',
 		Success: '#50c937',
 		Transparent: 'rgba(255, 255, 255, 0.0)',
 		...DefaultTheme.colors,
