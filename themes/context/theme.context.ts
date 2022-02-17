@@ -4,6 +4,6 @@ import { LightTheme } from '@jump/themes';
 
 import { ThemeContextInterface } from './theme.context.interface';
 
-const ThemeContext = createContext<ThemeContextInterface>({ theme: LightTheme });
+export const ThemeContext = createContext<ThemeContextInterface>({ theme: LightTheme });
 
-export const useTheme = (): ThemeContextInterface => useTheme();
+export const useTheme = (): ThemeContextInterface => useContext(ThemeContext);

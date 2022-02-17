@@ -1,3 +1,3 @@
 export type { ThemeContextInterface } from './theme.context.interface';
 
-export { useTheme } from './theme.context';
+export { useTheme, ThemeContext } from './theme.context';
