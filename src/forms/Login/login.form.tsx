@@ -13,7 +13,7 @@ import { Button, Input } from '@jump/components';
 import { LoginFormStyles } from './login.form.styles';
 import { LoginFormProps } from './login.form.interfaces';
 
-export const LoginForm: React.FunctionComponent<LoginFormProps> = (props): JSX.Element => {
+export const LoginForm: React.FunctionComponent<LoginFormProps> = (props) => {
 	const { control, handleSubmit, formState: { errors } } = useForm();
 
 	const { theme: { colors } } = useContext(ThemeContext);

@@ -12,7 +12,7 @@ import { LoginForm, LoginFormData } from '@jump/forms';
 import { LoginScreenStyles } from './login.screen.styles';
 import { LoginScreenNavigationProp, LoginScreenProps } from './login.screen.interfaces';
 
-export const LoginScreen: React.FunctionComponent<LoginScreenProps> = (): JSX.Element => {
+export const LoginScreen: React.FunctionComponent<LoginScreenProps> = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
   const { theme } = useContext(ThemeContext);

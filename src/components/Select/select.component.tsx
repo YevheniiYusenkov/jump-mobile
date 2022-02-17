@@ -11,7 +11,7 @@ import { CommonStyles } from '@jump/common';
 import { SelectProps } from './select.component.interfaces';
 import { SelectStyles } from './select.component.styles';
 
-export const Select: React.FunctionComponent<SelectProps> = (props): JSX.Element => {
+export const Select: React.FunctionComponent<SelectProps> = (props) => {
 	const { control, name, required, setValue, items, ...otherProps } = props;
 	const defaultItem = items.find((item) => item.default) || items[0];
 

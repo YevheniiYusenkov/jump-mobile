@@ -13,7 +13,7 @@ import { CommonStyles } from '@jump/common';
 import { InputProps } from './input.component.interfaces';
 import { InputStyles, InputStylesWithIcon, InputCommonStyles } from './input.component.styles';
 
-export const Input: React.FunctionComponent<InputProps> = (props): JSX.Element => {
+export const Input: React.FunctionComponent<InputProps> = (props) => {
 	const { control, name, required, errors, validate, placeholder, style, icon, ...otherProps } = props;
 
 	const { theme }  = useContext(ThemeContext);

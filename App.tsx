@@ -11,7 +11,7 @@ import { LoadingScreen, LoginScreen, ProfileScreen, SignupScreen } from '@jump/s
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const App: React.FunctionComponent = (): JSX.Element => {
+const App: React.FunctionComponent = () => {
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
   const [ isSigned, setIsSigned ] = useState<boolean>(false);
   const [ theme, setTheme ] = useState<Theme>(LightTheme);

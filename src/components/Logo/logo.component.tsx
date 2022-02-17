@@ -9,7 +9,7 @@ import { ThemeContext } from '@jump/themes';
 import { LogoProps } from './logo.component.interfaces';
 import { Color } from 'react-native-svg/lib/typescript/lib/extract/types';
 
-export const Logo: React.FunctionComponent<LogoProps> = (props): JSX.Element => {
+export const Logo: React.FunctionComponent<LogoProps> = (props) => {
 	const { theme: { colors } } = useContext(ThemeContext);
 
 	const { colored, style, fill, width = 125, height = 60, ...otherProps } = props;

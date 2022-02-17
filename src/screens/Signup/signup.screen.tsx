@@ -10,7 +10,7 @@ import { ThemeContext } from '@jump/themes';
 
 import { SignupScreenStyles } from './signup.screen.styles';
 
-export const SignupScreen: React.FunctionComponent = (): JSX.Element => {
+export const SignupScreen: React.FunctionComponent = () => {
 	const { theme } = useContext(ThemeContext);
 	const commonStyles = CommonStyles(theme.colors);
 	const styles = SignupScreenStyles(theme, commonStyles);

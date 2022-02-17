@@ -13,7 +13,7 @@ import {
 } from './button.component.styles';
 import { useContext } from 'react';
 
-export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element => {
+export const Button: React.FunctionComponent<ButtonProps> = (props) => {
 	const { onSubmit, handleSubmit, style, text, ...otherProps } = props;
 
 	const { theme } = useContext(ThemeContext);

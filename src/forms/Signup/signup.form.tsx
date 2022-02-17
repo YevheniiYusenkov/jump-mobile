@@ -11,7 +11,7 @@ import { Input, Button, Select } from '@jump/components';
 import { SignupFormStyles } from './signup.form.styles';
 import { SignupFormData, SignupFormProps } from './signup.form.interfaces';
 
-export const SignupForm: React.FunctionComponent<SignupFormProps> = (props): JSX.Element => {
+export const SignupForm: React.FunctionComponent<SignupFormProps> = (props) => {
 	const { control, handleSubmit, setValue } = useForm();
 
 	const { theme: { colors } } = useContext(ThemeContext);
@@ -34,7 +34,12 @@ export const SignupForm: React.FunctionComponent<SignupFormProps> = (props): JSX
 			<Input control={control} name='username' required={false} placeholder='Enter your username' />
 			<Input control={control} name='password' required={false} placeholder='Enter your password' />
 			<Input control={control} name='confirmPassword' required={false} placeholder='Confirm your password' />
-			<Button style={styles.Button} handleSubmit={handleSubmit} onSubmit={(data: SignupFormData) => {console.log(data);}} text='Submit'/>
+
+			<Button
+				style={styles.Button}
+				handleSubmit={handleSubmit}
+				onSubmit={(data: SignupFormData) => {console.log(data);}} text='Submit'
+			/>
 		</View>
 	);
 };

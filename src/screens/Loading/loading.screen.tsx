@@ -9,7 +9,7 @@ import { ThemeContext } from '@jump/themes';
 
 import { LoadingScreenStyles } from './loading.screen.styles';
 
-export const LoadingScreen: React.FunctionComponent = (): JSX.Element => {
+export const LoadingScreen: React.FunctionComponent = () => {
 	const { theme: { colors } } = useContext(ThemeContext);
 	const commonStyles = CommonStyles(colors);
 	const styles = LoadingScreenStyles(commonStyles);
