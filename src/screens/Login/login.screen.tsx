@@ -1,22 +1,19 @@
 import * as React from 'react';
 
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, KeyboardAvoidingView, Platform } from 'react-native';
+import { Text } from 'react-native';
 
-import { Logo } from '@jump/components';
-import { CommonStyles } from '@jump/common';
-import { useTheme } from '@jump/themes';
+import { useTheme, useLanguage } from '@jump/contexts';
 import { LoginForm, LoginFormData } from '@jump/forms';
+import { Container, ContainerType, Logo } from '@jump/components';
 
 import { LoginScreenStyles } from './login.screen.styles';
 import { LoginScreenNavigationProp, LoginScreenProps } from './login.screen.interfaces';
 
 export const LoginScreen: React.FunctionComponent<LoginScreenProps> = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
-
-  const { theme } = useTheme();
-  const commonStyles = CommonStyles(theme.colors);
-  const styles = LoginScreenStyles(theme, commonStyles);
+  const styles = LoginScreenStyles(useTheme().theme);
+  const { strings } = useLanguage();
 
   const onLoginSubmit = (data: LoginFormData) => {
     console.log(data);
@@ -27,15 +24,12 @@ export const LoginScreen: React.FunctionComponent<LoginScreenProps> = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.KeyboardAvoidingContainer}
-    >
-      <View style={styles.Container}>
+    <Container type={ContainerType.KeyboardAvoiding}>
+      <Container>
         <Logo width={200} height={100} colored={true} />
         <LoginForm onLoginSubmit={onLoginSubmit} onRequestPressed={onRequestPressed} />
-        <Text style={styles.FooterText}>Developed by Yevhenii Yusenkov, 2022</Text>
-      </View>
-    </KeyboardAvoidingView>
+        <Text style={styles.FooterText}>{strings.DevelopedBy}</Text>
+      </Container>
+    </Container>
   );
 };

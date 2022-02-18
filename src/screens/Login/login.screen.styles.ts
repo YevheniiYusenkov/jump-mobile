@@ -2,15 +2,8 @@ import { StyleSheet } from 'react-native';
 
 import { Theme } from '@jump/themes';
 
-export const LoginScreenStyles = ({ colors, font: { weight, size } }: Theme, styles: any) =>
+export const LoginScreenStyles = ({ colors, font: { weight, size } }: Theme) =>
 	StyleSheet.create({
-		KeyboardAvoidingContainer: {
-			...styles.KeyboardAvoidingContainer,
-		},
-		Container: {
-			...styles.PrimaryScreenContainer,
-			backgroundColor: colors.Background,
-		},
 		FooterText: {
 			color: colors.TextSecondary,
 			fontWeight: weight.Regular,
