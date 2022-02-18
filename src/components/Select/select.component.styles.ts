@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Theme } from '@jump/themes';
 
-export const SelectStyles = ({ colors, font: { size } }: Theme, styles: any) =>
+export const SelectStyles = ({ colors, font: { size } }: Theme) =>
 	StyleSheet.create({
 		Container: {
 			width: '100%',
@@ -9,7 +9,7 @@ export const SelectStyles = ({ colors, font: { size } }: Theme, styles: any) =>
 			height: 50,
 			marginTop: 12,
 			backgroundColor: colors.Primary,
-			...styles.Rounded,
+			borderRadius: 15,
 		},
 		Picker: {
 			height: '100%',
