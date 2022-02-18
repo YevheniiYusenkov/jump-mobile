@@ -1,1 +1,1 @@
-export { TariffPlans } from './common.constants';
+export { TariffPlans, PhoneMask } from './common.constants';
