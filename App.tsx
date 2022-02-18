@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
+import { ThemeProvider } from '@jump/contexts';
+import { LanguageProvider } from '@jump/contexts';
 import { RootStackParamList } from '@jump/interfaces';
-import { Theme, LightTheme, ThemeContext, ThemeContextInterface } from '@jump/themes';
 import { LoadingScreen, LoginScreen, ProfileScreen, SignupScreen } from '@jump/screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -14,19 +15,14 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const App: React.FunctionComponent = () => {
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
   const [ isSigned, setIsSigned ] = useState<boolean>(false);
-  const [ theme, setTheme ] = useState<Theme>(LightTheme);
-
-  const themeData: ThemeContextInterface = {
-    theme: theme,
-    setTheme: setTheme,
-  };
 
   useEffect(()=> {
     setTimeout(() => {setIsLoading(false); setIsSigned(false); }, 3000);
   }, []);
 
   return (
-    <ThemeContext.Provider value={themeData}>
+    <LanguageProvider>
+    <ThemeProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='Login'>
           {isLoading ? (
@@ -43,7 +39,8 @@ const App: React.FunctionComponent = () => {
           )}
         </Stack.Navigator>
       </NavigationContainer>
-    </ThemeContext.Provider>
+    </ThemeProvider>
+    </LanguageProvider>
   );
 };
 
