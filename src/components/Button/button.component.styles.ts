@@ -11,7 +11,7 @@ export interface ButtonStylesInterface {
 	},
 }
 
-export const ButtonStylesCommon = ({ font: { weight, size } }: Theme, styles: any) =>
+export const ButtonStylesCommon = ({ font: { weight, size } }: Theme, left?: boolean, right?: boolean) =>
 	StyleSheet.create({
 		Button: {
 			display: 'flex',
@@ -19,10 +19,12 @@ export const ButtonStylesCommon = ({ font: { weight, size } }: Theme, styles: an
 			alignItems: 'center',
 			flexShrink: 1,
 			marginTop: 12,
+			marginLeft: (right) ? 4 : 0,
+			marginRight: (left) ? 4 : 0,
 			width: '100%',
 			maxHeight: 50,
 			minHeight: 50,
-			...styles.Rounded,
+			borderRadius: 15,
 		},
 		Text: {
 			display: 'flex',
@@ -44,7 +46,6 @@ export const ButtonStylesDefault = (styles: any, colors: Theme['colors']) =>
 		Text: {
 			textAlign: 'center',
 			color: colors.Primary,
-			...styles.Text,
 		},
 	});
 
@@ -63,6 +64,5 @@ export const ButtonStylesOutlined = (styles: any, colors: Theme['colors']) =>
 		Text: {
 			textAlign: 'center',
 			color: colors.Secondary,
-			...styles.Text,
 		},
 	});

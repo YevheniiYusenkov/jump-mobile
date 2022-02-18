@@ -5,4 +5,6 @@ export interface ButtonProps extends Omit<TouchableOpacityProps, 'onPress'> {
 	handleSubmit?: Function,
 	text: string,
 	outlined?: boolean,
+	left?: boolean,
+	right?: boolean,
 }
