@@ -29,6 +29,7 @@ export interface Theme {
 		},
 		size: {
 			ExtraSmall: number,
+			Small: number,
 			Normal: number,
 			Medium: number,
 			Large: number,

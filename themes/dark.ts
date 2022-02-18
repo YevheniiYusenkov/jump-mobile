@@ -9,7 +9,7 @@ export const DarkTheme: Theme = {
 		Background: '#2c2c2c',
 		Secondary: '#2255c7',
 		Text: '#ffffff',
-		TextSecondary: '#a9a9a9',
+		TextSecondary: '#7e7e7e',
 		Error: '#ef3232',
 		Success: '#50c937',
 		Transparent: 'rgba(255, 255, 255, 0.0)',
@@ -23,7 +23,8 @@ export const DarkTheme: Theme = {
 			Bold: '900',
 		},
 		size: {
-			ExtraSmall: 11,
+			ExtraSmall: 9,
+			Small: 12,
 			Normal: 14,
 			Medium: 20,
 			Large: 24,
