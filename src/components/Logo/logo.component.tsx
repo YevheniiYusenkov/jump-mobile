@@ -3,7 +3,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 
 import { LogoImage } from '@jump/assets';
-import { useTheme } from '@jump/themes';
+import { useTheme } from '@jump/contexts';
 
 import { LogoProps } from './logo.component.interfaces';
 import { Color } from 'react-native-svg/lib/typescript/lib/extract/types';
