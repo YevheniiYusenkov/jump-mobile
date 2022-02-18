@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { Theme } from '@jump/themes';
 
-export const InputCommonStyles = ({ colors, font: { size, weight } }: Theme, styles: any,) =>
+export const InputCommonStyles = ({ colors, font: { size, weight } }: Theme) =>
 	StyleSheet.create({
 		Container: {
 			display: 'flex',
@@ -26,7 +26,7 @@ export const InputCommonStyles = ({ colors, font: { size, weight } }: Theme, sty
 			height: '100%',
 			width: '100%',
 			zIndex: 0,
-			...styles.Rounded,
+			borderRadius: 15,
 		},
 		Error: {
 			marginTop: 6,
@@ -34,7 +34,7 @@ export const InputCommonStyles = ({ colors, font: { size, weight } }: Theme, sty
 			width: '100%',
 			textAlign: 'left',
 			color: colors.Error,
-			fontSize: size.Normal,
+			fontSize: size.Small,
 			fontWeight: weight.Regular,
 		},
 	});
