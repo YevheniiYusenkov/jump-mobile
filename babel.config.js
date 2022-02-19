@@ -6,7 +6,6 @@ module.exports = {
       {
         root: ['./'],
         alias: {
-          '@jump/common': './src/common/index.ts',
           '@jump/screens': './src/screens/index.ts',
           '@jump/forms': './src/forms/index.ts',
           '@jump/components': './src/components/index.ts',
