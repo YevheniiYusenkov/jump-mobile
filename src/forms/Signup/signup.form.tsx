@@ -1,18 +1,23 @@
 import * as React from 'react';
 
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { faHouse, faKey, faLocation, faPhone, faStreetView, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import { PhoneMask } from '@jump/common';
-import { useLanguage } from '@jump/contexts';
-import { Button, Container, ContainerType, Input, Select } from '@jump/components';
+import { useAPI, useLanguage } from '@jump/contexts';
+import { Button, Container, ContainerType, Input, Select, SelectItem } from '@jump/components';
 
 import { SignupFormStyles } from './signup.form.styles';
-import { SignupFormInterface } from './signup.form.interfaces';
+import {
+	SignupFormInterface,
+	SignupPhoneMask,
+} from './signup.form.interfaces';
 
 export const SignupForm: SignupFormInterface = {
 	First: (props) => {
+		const { api } = useAPI();
+		const [ items, setItems ] = useState<SelectItem[]>([]);
 		const { style, onSubmit, formData } = props;
 		const { control, handleSubmit, setValue, formState: { errors } } = useForm({
 			mode: 'onBlur',
@@ -22,6 +27,15 @@ export const SignupForm: SignupFormInterface = {
 		const { strings } = useLanguage();
 		const styles = SignupFormStyles();
 
+		useEffect(() => {
+			const setPlans = async () => {
+				const plans = await api.plans();
+				setItems(plans.map(plan => ({ label: plan.name, value: plan.id })));
+			};
+
+			void setPlans();
+		},[ api ]);
+
 		return (
 			<Container style={style} type={ContainerType.Form}>
 				<Select
@@ -29,11 +43,7 @@ export const SignupForm: SignupFormInterface = {
 					name='tariffPlan'
 					required={strings.Required}
 					setValue={setValue}
-					items={[
-						{ label: 'First Choice', value: 'firstChoice' },
-						{ label: 'Second Choice', value: 'secondChoice' },
-						{ label: 'Third Choice', value: 'thirdChoice' },
-					]}
+					items={items}
 				/>
 
 				<Input
@@ -55,7 +65,7 @@ export const SignupForm: SignupFormInterface = {
 					required={strings.Required}
 					placeholder='(0__) ___-__-__'
 					icon={faPhone}
-					mask={PhoneMask}
+					mask={SignupPhoneMask}
 					errors={errors}
 					validate={{
 						invalid: value => /(\([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2})/.test(value) || strings.InvalidPhoneNumber,

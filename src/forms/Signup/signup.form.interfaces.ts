@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { ViewProps } from 'react-native';
 
-import { TariffPlans } from '@jump/common';
+import { Mask } from 'react-native-mask-input';
 
 export const enum SignupStep {
 	First,
@@ -23,7 +23,7 @@ export interface SignupFormInterface {
 export interface SignupFormData {
 	fullName: string,
 	phoneNumber: string,
-	tariffPlan: TariffPlans,
+	plan: number,
 	locality: string,
 	street: string,
 	suite: string,
@@ -32,3 +32,5 @@ export interface SignupFormData {
 	password: string,
 	confirmPassword: string,
 }
+
+export const SignupPhoneMask: Mask = [ '(', '0', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/ ];
