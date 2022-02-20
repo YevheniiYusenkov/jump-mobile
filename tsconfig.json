@@ -19,7 +19,7 @@
     "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
     "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
     "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
-    "types": ["./src/typings"],
+    "types": ["node", "./src/typings"],
     "paths": {
       "@jump/screens": ["./src/screens/index.ts"],
       "@jump/forms": ["./src/forms/index.ts"],
@@ -28,7 +28,8 @@
       "@jump/contexts": ["./src/contexts/index.ts"],
       "@jump/assets": ["./assets/index.ts"],
       "@jump/themes": ["./themes/index.ts"],
-      "@jump/languages": ["./languages/index.ts"]
+      "@jump/languages": ["./languages/index.ts"],
+      "@jump/api": ["./src/services/API/index.ts"]
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     "allowSyntheticDefaultImports": true,     /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
