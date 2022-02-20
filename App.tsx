@@ -5,22 +5,23 @@ import { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
+import { ApiProvider } from '@jump/contexts';
 import { ThemeProvider } from '@jump/contexts';
 import { LanguageProvider } from '@jump/contexts';
 import { RootStackParamList } from '@jump/interfaces';
-import { LoadingScreen, LoginScreen, ProfileScreen, SignupScreen } from '@jump/screens';
+import { LoadingScreen, LoginScreen, SignupScreen } from '@jump/screens';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App: React.FunctionComponent = () => {
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
-  const [ isSigned, setIsSigned ] = useState<boolean>(false);
 
   useEffect(()=> {
-    setTimeout(() => {setIsLoading(false); setIsSigned(false); }, 3000);
+    setTimeout(() => {setIsLoading(false); }, 3000);
   }, []);
 
   return (
+    <ApiProvider>
     <LanguageProvider>
     <ThemeProvider>
       <NavigationContainer>
@@ -28,12 +29,10 @@ const App: React.FunctionComponent = () => {
           {isLoading ? (
             <Stack.Screen name='Loading' component={LoadingScreen} />
           ) : (
-            isSigned ? (
-              <Stack.Screen name='Profile' component={ProfileScreen} />
-            ) : (
+            (
               <>
-                <Stack.Screen name='Login' component={LoginScreen} />
-                <Stack.Screen name='Signup' component={SignupScreen} />
+                <Stack.Screen name='Login' component={LoginScreen}/>
+                <Stack.Screen name='Signup' component={SignupScreen}/>
               </>
             )
           )}
@@ -41,6 +40,7 @@ const App: React.FunctionComponent = () => {
       </NavigationContainer>
     </ThemeProvider>
     </LanguageProvider>
+    </ApiProvider>
   );
 };
 
