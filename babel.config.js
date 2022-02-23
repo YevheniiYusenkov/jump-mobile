@@ -15,6 +15,7 @@ module.exports = {
           '@jump/themes': './themes/index.ts',
           '@jump/languages': './languages/index.ts',
           '@jump/api': './src/services/API/index.ts',
+          '@jump/auth': './src/services/Auth/index.ts',
         },
       },
     ],
